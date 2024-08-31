@@ -1,0 +1,11 @@
+CREATE TABLE user (
+    name TEXT NOT NULL
+);
+
+selectAll:
+SELECT *
+FROM user;
+
+insert:
+INSERT INTO user(name)
+VALUES ( ?);

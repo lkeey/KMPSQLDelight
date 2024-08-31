@@ -1,4 +1,4 @@
-package dev.lkeeeey.delight.comon
+package dev.lkeeeey.delight.common
 
 import app.cash.sqldelight.db.SqlDriver
 

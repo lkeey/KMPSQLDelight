@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsCompose)
     alias(libs.plugins.compose.compiler)
+
     alias(libs.plugins.sqldelight)
 }
 
@@ -52,10 +53,10 @@ kotlin {
 
             implementation(libs.sqldelight.coroutines)
         }
-        desktopMain.dependencies {
-            implementation(compose.desktop.currentOs)
-            implementation(libs.kotlinx.coroutines.swing)
-        }
+//        desktopMain.dependencies {
+//            implementation(compose.desktop.currentOs)
+//            implementation(libs.kotlinx.coroutines.swing)
+//        }
         iosMain.dependencies {
             implementation(libs.sqldelight.ios)
         }
@@ -98,6 +99,9 @@ android {
         debugImplementation(compose.uiTooling)
     }
 }
+dependencies {
+    implementation(project(":composeApp"))
+}
 
 compose.desktop {
     application {
@@ -111,10 +115,11 @@ compose.desktop {
     }
 }
 
+
 sqldelight {
     databases {
-        create(name = "UsersDatabase") {
-            packageName.set("dev.lkeeeey.delight.db")
+        create("UsersDatabase") {
+            packageName.set("dev.lkeeeey.delight.composeApp.database")
         }
     }
 }
